@@ -23,14 +23,12 @@ if (form && address) {
 
         const url = search(address.value, searchEngine.value);
 
-        // This uses the built-in Scramjet encoder if available
-        // If not, it falls back to a standard Base64 route
-        let encodedUrl = "";
-        if (window.__scramjet$config) {
-            encodedUrl = __scramjet$config.prefix + __scramjet$config.encodeUrl(url);
-        } else {
-            encodedUrl = "/scram/" + btoa(url).replace(/\//g, "_").replace(/\+/g, "-").replace(/=/g, "");
-        }
+        // Scramjet expects a specific Base64 format
+        // We use btoa and then clean it up for the URL
+        const encodedUrl = "/scram/" + btoa(url)
+            .replace(/\//g, "_")
+            .replace(/\+/g, "-")
+            .replace(/=/g, "");
         
         window.location.href = encodedUrl;
     });
