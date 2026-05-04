@@ -2,23 +2,20 @@
 
 const swConfig = {
     prefix: "/scram/",
-    config: "/scram/scramjet.config.js",
     sw: "/scram/scramjet.sw.js",
 };
 
-async function registerSW() {
-    if (!navigator.serviceWorker) {
-        throw new Error("Your browser does not support Service Workers.");
-    }
-
-    // This registers the Scramjet engine to handle your requests
-    await navigator.serviceWorker.register(swConfig.sw, {
-        scope: swConfig.prefix,
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register(swConfig.sw, {
+                scope: swConfig.prefix,
+            })
+            .then(() => {
+                console.log("Scramjet Engine Ready");
+            })
+            .catch((err) => {
+                console.error("SW Failed:", err);
+            });
     });
 }
-
-registerSW().then(() => {
-    console.log("Scramjet Service Worker is ready.");
-}).catch((err) => {
-    console.error("Service Worker registration failed:", err);
-});
