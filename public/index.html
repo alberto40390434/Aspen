@@ -20,47 +20,38 @@
 	</head>
 
 	<body>
-		<div title="Scramjet Logo" class="flex-center logo-wrapper header-center">
-			<img class="logo" src="sj.png" alt="Scramjet" />
-			<h1>Scramjet | MW</h1>
-		</div>
-		<div class="flex-center desc left-margin">
-			<p>
-				Scramjet is an experimental interception based web proxy designed to
-				evade internet censorship, bypass arbitrary web browser restrictions and
-				innovate web proxy technologies.
-			</p>
-		</div>
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="logo-circle">A</div> <a href="index.html" class="nav-item active" title="Home">🏠</a>
+            <a href="games.html" class="nav-item" title="Games">🎮</a>
+            <a href="apps.html" class="nav-item" title="Apps">📱</a>
+            <a href="settings.html" class="nav-item" title="Settings">⚙️</a>
+        </div>
+        <div class="sidebar-bottom">
+            <a href="https://discord.gg/yourlink" class="nav-item" title="Discord">💬</a>
+        </div>
+    </div>
 
-		<form id="sj-form" class="flex-center">
-			<input
-				id="sj-search-engine"
-				value="https://www.google.com/search?q=%s"
-				type="hidden"
-			/>
-			<input id="sj-address" type="text" placeholder="Search the web freely" />
-		</form>
-		<div class="desc left-margin">
-			<p id="sj-error"></p>
-			<pre id="sj-error-code"></pre>
-		</div>
-		<footer>
-			<div>
-				<a
-					title="The Mercury Workshop GitHub organization"
-					href="https://github.com/MercuryWorkshop"
-					>Mercury Workshop</a
-				>
-				<a
-					title="The example demo app for Scramjet"
-					href="https://github.com/MercuryWorkshop/Scramjet-Demo"
-					>GitHub</a
-				>
-				<a title="License information" href="credits.html">Credits</a>
-			</div>
-			<div>
-				<span>Scramjet &copy; MW 2025</span>
-			</div>
-		</footer>
-	</body>
+    <main class="content">
+        <div class="hero">
+            <h1 class="aspen-title">aspen<span>.</span></h1>
+            <p class="subtitle">Start your unblocking journey today!</p>
+        </div>
+
+        <form id="sj-form" class="search-container">
+            <input
+                id="sj-search-engine"
+                value="https://www.google.com/search?q=%s"
+                type="hidden"
+            />
+            <input id="sj-address" type="text" placeholder="Search the web freely..." autofocus />
+            <button type="submit" class="search-btn">✨</button>
+        </form>
+
+        <div class="error-box">
+            <p id="sj-error"></p>
+            <pre id="sj-error-code"></pre>
+        </div>
+    </main>
+</body>
 </html>
