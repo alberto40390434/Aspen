@@ -23,8 +23,15 @@ if (form && address) {
 
         const url = search(address.value, searchEngine.value);
 
-        // SCRAMJET SPECIFIC REDIRECT
-        // It uses the 'scram' prefix usually defined in your setup
-        window.location.href = "/scram/" + btoa(url).replace(/\//g, "_").replace(/\+/g, "-").replace(/=/g, "");
+        // This uses the built-in Scramjet encoder if available
+        // If not, it falls back to a standard Base64 route
+        let encodedUrl = "";
+        if (window.__scramjet$config) {
+            encodedUrl = __scramjet$config.prefix + __scramjet$config.encodeUrl(url);
+        } else {
+            encodedUrl = "/scram/" + btoa(url).replace(/\//g, "_").replace(/\+/g, "-").replace(/=/g, "");
+        }
+        
+        window.location.href = encodedUrl;
     });
 }
