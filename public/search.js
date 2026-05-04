@@ -17,15 +17,20 @@ const form = document.getElementById("sj-form");
 const address = document.getElementById("sj-address");
 const searchEngine = document.getElementById("sj-search-engine");
 
+// THE TRIGGER: This makes the search bar actually DO something
 if (form && address) {
     form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        // 1. Convert input to URL
+        // Check if the proxy config is loaded
+        if (typeof __uv$config === 'undefined') {
+            console.error("Config not found. Make sure uv.config.js is in the right folder!");
+            return;
+        }
+
         const url = search(address.value, searchEngine.value);
 
-        // 2. Load the site through the proxy
-        // This assumes your Scramjet config is correctly loaded
+        // Redirect to the proxy URL
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(url);
     });
 }
