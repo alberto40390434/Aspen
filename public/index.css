@@ -1,136 +1,116 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
 
 :root {
-    --bg-dark: #050505;
-    --sidebar-bg: #0a0a0a;
-    --accent: #9d4edd; /* That purple glow */
-    --text-dim: rgba(255, 255, 255, 0.6);
+    --bg: #050505;
+    --accent: #9d4edd;
+    --sidebar: #0a0a0a;
 }
 
 body {
-    font-family: "Inter", sans-serif;
     margin: 0;
-    background-color: var(--bg-dark);
-    /* Deep space purple glow effect */
-    background-image: radial-gradient(circle at 50% 120%, #240046 0%, #050505 60%);
+    background: var(--bg);
+    background-image: radial-gradient(circle at 50% 110%, #240046 0%, #050505 60%);
     color: white;
+    font-family: 'Inter', sans-serif;
     display: flex;
     height: 100vh;
     overflow: hidden;
 }
 
-/* --- SIDEBAR --- */
+/* Sidebar */
 .sidebar {
-    width: 75px;
-    background: var(--sidebar-bg);
+    width: 70px;
+    background: var(--sidebar);
     border-right: 1px solid #1a1a1a;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px 0;
-    z-index: 100;
+    padding: 25px 0;
 }
 
-/* Styling for those icons that looked tiny before */
-.nav-item {
-    font-size: 24px;
-    color: var(--text-dim);
-    text-decoration: none;
+.logo-circle {
+    width: 35px;
+    height: 35px;
+    background: linear-gradient(45deg, var(--accent), #5a189a);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
     margin-bottom: 30px;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-size: 22px;
+    margin-bottom: 25px;
+    opacity: 0.5;
+    transition: 0.3s;
 }
 
 .nav-item:hover, .nav-item.active {
-    color: var(--accent);
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 10px var(--accent));
+    opacity: 1;
+    filter: drop-shadow(0 0 8px var(--accent));
 }
 
-/* --- MAIN CONTENT AREA --- */
-.main-content {
+/* Main UI */
+.content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    position: relative;
+    justify-content: center;
 }
 
-/* The Big "aspen." Title */
 .aspen-title {
     font-size: 90px;
-    font-weight: 800;
     margin: 0;
-    background: linear-gradient(to bottom, #fff, #bbb);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -3px;
+    letter-spacing: -4px;
 }
 
 .aspen-title span {
     color: var(--accent);
-    -webkit-text-fill-color: var(--accent);
-    text-shadow: 0 0 25px var(--accent);
+    text-shadow: 0 0 20px var(--accent);
 }
 
-.tagline {
-    color: var(--text-dim);
-    font-size: 18px;
+.subtitle {
+    color: rgba(255, 255, 255, 0.5);
     margin-top: -10px;
     margin-bottom: 40px;
 }
 
-/* --- SEARCH BAR (MODERNIZED) --- */
-#sj-form {
+/* Search Bar */
+.search-container {
+    position: relative;
     display: flex;
-    justify-content: center;
-    width: 100%;
+    align-items: center;
 }
 
 #sj-address {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 18px 30px;
     width: 450px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 100px; /* Full pill shape */
+    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #222;
+    border-radius: 50px;
     color: white;
-    font-size: 16px;
     outline: none;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    transition: 0.3s;
 }
 
 #sj-address:focus {
-    width: 550px; /* Expands on click */
+    width: 500px;
     border-color: var(--accent);
-    box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-/* --- THE PROXY FRAME --- */
-/* This makes the actual unblocked site take up the whole screen */
-#sj-frame {
-    border: none;
-    position: fixed;
-    top: 0;
-    left: 75px; /* Offset for the sidebar */
-    width: calc(100vw - 75px);
-    height: 100vh;
-    background-color: var(--bg-dark);
-    display: none; /* Only show when searching */
-}
-
-/* --- UTILS --- */
-#sj-error {
-    color: #ff4d4d;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-footer {
+.search-btn {
     position: absolute;
-    bottom: 20px;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.2);
+    right: 8px;
+    background: var(--accent);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
 }
