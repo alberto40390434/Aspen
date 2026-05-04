@@ -23,8 +23,7 @@ if (form && address) {
 
         const url = search(address.value, searchEngine.value);
 
-        // Scramjet expects a specific Base64 format
-        // We use btoa and then clean it up for the URL
+        // This is the correct Scramjet encoding to stop the "Route Error"
         const encodedUrl = "/scram/" + btoa(url)
             .replace(/\//g, "_")
             .replace(/\+/g, "-")
