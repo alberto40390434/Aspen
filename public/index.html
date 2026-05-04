@@ -3,29 +3,25 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-    
     <title>Google Docs</title>
     <link rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" />
 
     <script src="/scram/scramjet.all.js"></script>
     <script src="/baremux/index.js"></script>
-    
     <link rel="stylesheet" href="index.css" />
     
     <script src="register-sw.js" defer></script>
     <script src="search.js" defer></script>
 </head>
-
 <body>
     <div class="sidebar">
         <div class="logo-circle">A</div> 
-        <a href="index.html" class="nav-item active" title="Home">🏠</a>
-        <a href="games.html" class="nav-item" title="Games">🎮</a>
-        <a href="apps.html" class="nav-item" title="Apps">📱</a>
-        <a href="settings.html" class="nav-item" title="Settings">⚙️</a>
-        
+        <a href="index.html" class="nav-item active">🏠</a>
+        <a href="games.html" class="nav-item">🎮</a>
+        <a href="apps.html" class="nav-item">📱</a>
+        <a href="settings.html" class="nav-item">⚙️</a>
         <div style="margin-top: auto;"> 
-            <a href="https://discord.gg/yourlink" class="nav-item" title="Discord">💬</a>
+            <a href="https://discord.gg/link" class="nav-item">💬</a>
         </div>
     </div>
 
@@ -34,18 +30,13 @@
             <h1 class="aspen-title">aspen<span>.</span></h1>
             <p class="subtitle">Start your unblocking journey today!</p>
         </div>
-
         <form id="sj-form" class="search-container">
             <input id="sj-search-engine" value="https://duckduckgo.com/?q=%s" type="hidden" />
-            <input id="sj-address" type="text" placeholder="Search the web freely..." autofocus autocomplete="off" />
+            <input id="sj-address" type="text" placeholder="Search freely..." autofocus autocomplete="off" />
             <button type="submit" class="search-btn">✨</button>
         </form>
-
-        <div class="error-box">
-            <p id="sj-error"></p>
-        </div>
+        <div class="error-box"><p id="sj-error"></p></div>
     </main>
-
     <iframe id="sj-frame" style="display:none;"></iframe>
 </body>
 </html>
